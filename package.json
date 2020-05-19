@@ -4,7 +4,10 @@
     "description": "A mern stack blog with user functionality.",
     "main": "server/server.js",
     "scripts": {
-        "start": "nodemon server/server.js"
+        "start": "node server/server.js",
+        "server": "nodemon server/server.js",
+        "client": "npm start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "author": "developerjahid",
     "license": "ISC",
@@ -18,6 +21,7 @@
         "mongoose": "^5.9.14"
     },
     "devDependencies": {
+        "concurrently": "^5.2.0",
         "nodemon": "^2.0.4"
     }
 }

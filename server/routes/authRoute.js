@@ -14,7 +14,7 @@ const {
 
 //signup auth post
 router.post(
-    '/',
+    '/signup',
     //express validator middleware
     [
         check('name', 'Name is required').not().isEmpty(),
@@ -28,15 +28,22 @@ router.post(
 )
 
 //signup auth - directly login
-router.get('/', auth, signupGetController)
+router.get('/signup', auth, signupGetController)
 
 //login post
-router.post('/login', loginPostController)
+router.post(
+    '/login', //express validator middleware
+    [
+        check('email', 'Please provide a vaild email.').isEmail(),
+        check('password', 'Password is required.').exists(),
+    ],
+    loginPostController
+)
 
 //login get
-router.post('/login', loginGetController)
+router.get('/login', auth, loginGetController)
 
-//login get
+//logout
 router.post('/', logoutController)
 
 module.exports = router
