@@ -16,7 +16,9 @@ const userSchema = new Schema(
         password: {
             type: String,
             required: true,
-            maxlength: 6,
+        },
+        avater: {
+            type: String,
         },
         profile: {
             type: Schema.Types.ObjectId,

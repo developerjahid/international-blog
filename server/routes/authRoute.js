@@ -1,6 +1,9 @@
 const router = require('express').Router()
 const { check } = require('express-validator')
 
+//require middleware
+const auth = require('../middleware/auth')
+
 const {
     signupGetController,
     signupPostController,
@@ -9,8 +12,10 @@ const {
     logoutController,
 } = require('../controllers/authController')
 
+//signup auth post
 router.post(
     '/',
+    //express validator middleware
     [
         check('name', 'Name is required').not().isEmpty(),
         check('email', 'Please provide a vaild email.').isEmail(),
@@ -21,5 +26,17 @@ router.post(
     ],
     signupPostController
 )
+
+//signup auth - directly login
+router.get('/', auth, signupGetController)
+
+//login post
+router.post('/login', loginPostController)
+
+//login get
+router.post('/login', loginGetController)
+
+//login get
+router.post('/', logoutController)
 
 module.exports = router
