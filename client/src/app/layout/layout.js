@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import Navbar from './navbar/navbar'
+import Navme from './navbar/navbar'
 
 const Layout = (props) => {
     return (
         <Fragment>
-            <Navbar />
+            <Navme />
             {props.children}
         </Fragment>
     )

@@ -1,0 +1,14 @@
+.navbar {
+    background: #ff9800;
+}
+.navbar-brand {
+    color: white;
+}
+.signup {
+    min-width: 450px;
+    margin-top: 50px;
+}
+.login {
+    min-width: 450px;
+    margin-top: 50px;
+}
